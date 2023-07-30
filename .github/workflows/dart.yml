@@ -1,0 +1,41 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git nginx
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: Build app
+        # run: flutter build web --web-renderer html
+        run: flutter build web --web-renderer html
+
+      - name: Copy build output to DigitalOcean Droplet
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          password:  ${{ secrets.DROPLET_PAASSWORD }}
+          port: 22
+          source: 'build/web/*'
+          target: '/var/www/moezlanding'
+          
+      - name: Restart Nginx
+        run: sudo systemctl restart nginx

@@ -146,7 +146,7 @@ class _IndexWidgetState extends State<IndexWidget> {
               ),
               const SizedBox(height: 10),
               Container(
-                width: MediaQuery.of(context).size.width * 0.7,
+                width: MediaQuery.of(context).size.width * 0.75,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
@@ -246,37 +246,52 @@ class _IndexWidgetState extends State<IndexWidget> {
       required String image,
       required String num,
       void Function()? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            height: 38,
-            width: 38,
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(55),
-                image: DecorationImage(image: AssetImage(image))),
+    return Row(
+      children: [
+        Container(
+          height: 38,
+          width: 38,
+          padding: const EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(55),
+              image: DecorationImage(image: AssetImage(image))),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          flex: 2,
+          child: Text(
+            title,
+            style:
+                GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            flex: 2,
-            child: Text(
-              title,
-              style:
-                  GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+        ),
+        Expanded(
+          flex: 3,
+          child: InkWell(
+             onTap: onTap,
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xFFFBB03F),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade100,
+                      blurRadius:0.5,
+                      spreadRadius:0.5
+                    )
+                  ]),
+              child: Center(
+                child: Text(
+                  "နိပ်ပါ",
+                  style: GoogleFonts.dmSans(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+              ),
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Text(
-              num,
-              style:
-                  GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

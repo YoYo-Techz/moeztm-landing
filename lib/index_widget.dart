@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class IndexWidget extends StatefulWidget {
   const IndexWidget({super.key});
@@ -57,11 +58,18 @@ class _IndexWidgetState extends State<IndexWidget> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 50,
-                    child: Image.asset(
-                      "assets/logo/play-store.png",
-                      fit: BoxFit.cover,
+                  InkWell(
+                    onTap: () {
+                      ontap(
+                          url:
+                              "https://play.google.com/store/apps/details?id=com.yoyo.trip.moez");
+                    },
+                    child: SizedBox(
+                      height: 50,
+                      child: Image.asset(
+                        "assets/logo/play-store.png",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -97,19 +105,23 @@ class _IndexWidgetState extends State<IndexWidget> {
                   item(
                       title: "Facebook",
                       image: "assets/logo/facebook.png",
-                      url: ""),
+                      url: "https://www.facebook.com/moez2dlive?mibextid="),
                   const SizedBox(width: 10),
                   item(
                       title: "YouTube",
                       image: "assets/logo/youtube.png",
-                      url: ""),
+                      url: "https://youtube.com/@moeztm2d3d"),
                   const SizedBox(width: 10),
-                  item(title: "Viber", image: "assets/logo/viber.png", url: ""),
+                  item(
+                      title: "Viber",
+                      image: "assets/logo/viber.png",
+                      url:
+                          "https://invite.viber.com/?g2=AQA%2FETDhdpDxp1EdCZjLMMRSzGF%2FCJSNdanGekeZl9XrhsApB8nB6t%2BM5pFt3o6h"),
                   const SizedBox(width: 10),
                   item(
                       title: "Telegram",
                       image: "assets/logo/telegram.png",
-                      url: ""),
+                      url: "https://t.me/moez2d3d"),
                 ],
               ),
               const SizedBox(height: 5),
@@ -144,27 +156,42 @@ class _IndexWidgetState extends State<IndexWidget> {
                     citem(
                         title: "Viber 1",
                         image: "assets/logo/viber.png",
-                        num: "09123456789"),
+                        num: "09-425-785-735",
+                        onTap: () {
+                          ontap(url: "https://msng.link/o?959425785735=vi");
+                        }),
                     const SizedBox(height: 10),
                     citem(
                         title: "Viber 2",
                         image: "assets/logo/viber.png",
-                        num: "09123456789"),
+                        num: "+66-99-443-0783",
+                        onTap: () {
+                          ontap(url: "https://msng.link/o?66994430783=vi");
+                        }),
                     const SizedBox(height: 10),
                     citem(
                         title: "Telegram 1",
                         image: "assets/logo/telegram.png",
-                        num: "09123456789"),
+                        num: "t.me/moezofficial",
+                        onTap: () {
+                          ontap(url: "https://t.me/moezofficial");
+                        }),
                     const SizedBox(height: 10),
                     citem(
                         title: "Telegram 2",
                         image: "assets/logo/telegram.png",
-                        num: "09123456789"),
+                        num: "t.me/moeztm",
+                        onTap: () {
+                          ontap(url: "https://t.me/moeztm");
+                        }),
                     const SizedBox(height: 10),
                     citem(
                         title: "Telegram 3",
                         image: "assets/logo/telegram.png",
-                        num: "09123456789")
+                        num: "t.me/moeztm2d3d",
+                        onTap: () {
+                          ontap(url: "https://t.me/moeztm2d3d");
+                        })
                   ],
                 ),
               ),
@@ -176,56 +203,80 @@ class _IndexWidgetState extends State<IndexWidget> {
     );
   }
 
+  void ontap({required String url}) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   Widget item(
       {required String title, required String image, required String url}) {
-    return Column(
-      children: [
-        Container(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(55),
-              image: DecorationImage(image: AssetImage(image))),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          title,
-          style: GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
-        )
-      ],
+    return InkWell(
+      onTap: () async {
+        if (await canLaunchUrlString(url)) {
+          await launchUrlString(url);
+        } else {
+          throw 'Could not launch $url';
+        }
+      },
+      child: Column(
+        children: [
+          Container(
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(55),
+                image: DecorationImage(image: AssetImage(image))),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            title,
+            style:
+                GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+          )
+        ],
+      ),
     );
   }
 
   Widget citem(
-      {required String title, required String image, required String num}) {
-    return Row(
-      children: [
-        Container(
-          height: 38,
-          width: 38,
-          padding: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(55),
-              image: DecorationImage(image: AssetImage(image))),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          flex: 2,
-          child: Text(
-            title,
-            style:
-                GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+      {required String title,
+      required String image,
+      required String num,
+      void Function()? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Container(
+            height: 38,
+            width: 38,
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(55),
+                image: DecorationImage(image: AssetImage(image))),
           ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(
-            num,
-            style:
-                GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+          const SizedBox(width: 10),
+          Expanded(
+            flex: 2,
+            child: Text(
+              title,
+              style:
+                  GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+            ),
           ),
-        )
-      ],
+          Expanded(
+            flex: 3,
+            child: Text(
+              num,
+              style:
+                  GoogleFonts.dmSans(fontWeight: FontWeight.bold, fontSize: 13),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -41,7 +41,7 @@ class _IndexWidgetState extends State<IndexWidget> {
             children: [
               const SizedBox(height: 24),
               Text(
-                "MoeZ(TM)",
+                "MoeZ (TM)",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.dmSans(
                     fontSize: 27, fontWeight: FontWeight.w700),
@@ -53,7 +53,15 @@ class _IndexWidgetState extends State<IndexWidget> {
                 style: GoogleFonts.notoSansMyanmar(
                     fontSize: 18, fontWeight: FontWeight.w700),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 18),
+            
+              Text(
+                "ကျွန်တော့် App အား Download ဆွဲရန်",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.notoSerifMyanmar(
+                    fontSize: 16, fontWeight: FontWeight.bold,color: Colors.red.shade600),
+              ),
+                const SizedBox(height: 5),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -90,14 +98,14 @@ class _IndexWidgetState extends State<IndexWidget> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
               Text(
                 "ကျွန်တော့် Offical ချန်နယ် များ",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.notoSansMyanmar(
                     fontSize: 17, fontWeight: FontWeight.w700),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 15),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -124,7 +132,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                       url: "https://t.me/moez2d3d"),
                 ],
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
@@ -134,7 +142,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                       fontSize: 15, fontWeight: FontWeight.w700),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
@@ -144,7 +152,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                       fontSize: 15, fontWeight: FontWeight.w700),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               Container(
                 width: MediaQuery.of(context).size.width * 0.75,
                 padding: const EdgeInsets.all(8),
@@ -273,7 +281,7 @@ class _IndexWidgetState extends State<IndexWidget> {
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xFFFBB03F),
+                  color: Colors.black,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade100,
@@ -285,7 +293,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                 child: Text(
                   "နိပ်ပါ",
                   style: GoogleFonts.dmSans(
-                      fontWeight: FontWeight.bold, fontSize: 14),
+                      fontWeight: FontWeight.bold, fontSize: 14,color: Colors.redAccent),
                 ),
               ),
             ),

@@ -41,7 +41,7 @@ class _IndexWidgetState extends State<IndexWidget> {
             children: [
               const SizedBox(height: 24),
               Text(
-                "MoeZ (TM)",
+                "Moe Z (TM)",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.dmSans(
                     fontSize: 27, fontWeight: FontWeight.w700),
@@ -73,21 +73,21 @@ class _IndexWidgetState extends State<IndexWidget> {
                               "https://play.google.com/store/apps/details?id=com.yoyo.trip.moez");
                     },
                     child: SizedBox(
-                      height: 50,
+                      height: 45,
                       child: Image.asset(
                         "assets/logo/play-store.png",
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  SizedBox(
-                    height: 45,
-                    child: Image.asset(
-                      "assets/logo/testflight.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  // const SizedBox(width: 10),
+                  // SizedBox(
+                  //   height: 45,
+                  //   child: Image.asset(
+                  //     "assets/logo/testflight.png",
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
                   const SizedBox(width: 10),
                   SizedBox(
                     height: 45,
@@ -100,7 +100,7 @@ class _IndexWidgetState extends State<IndexWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                "ကျွန်တော့် Offical ချန်နယ် များ",
+                "ကျွန်တော့် Official ချန်နယ် များ",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.notoSansMyanmar(
                     fontSize: 17, fontWeight: FontWeight.w700),

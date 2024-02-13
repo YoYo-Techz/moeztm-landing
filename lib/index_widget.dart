@@ -172,6 +172,14 @@ class _IndexWidgetState extends State<IndexWidget> {
                     citem(
                         title: "Viber 2",
                         image: "assets/logo/viber.png",
+                        num: "09-775-521-932",
+                        onTap: () {
+                          ontap(url: "https://msng.link/o?959775521932=vi");
+                        }),
+                    const SizedBox(height: 10),
+                    citem(
+                        title: "Viber 2",
+                        image: "assets/logo/viber.png",
                         num: "+66-99-443-0783",
                         onTap: () {
                           ontap(url: "https://msng.link/o?66994430783=vi");

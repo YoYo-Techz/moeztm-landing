@@ -178,7 +178,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                         }),
                     const SizedBox(height: 10),
                     citem(
-                        title: "Viber 2",
+                        title: "Viber 3",
                         image: "assets/logo/viber.png",
                         num: "+66-99-443-0783",
                         onTap: () {

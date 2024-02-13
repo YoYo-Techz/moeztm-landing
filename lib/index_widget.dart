@@ -55,49 +55,49 @@ class _IndexWidgetState extends State<IndexWidget> {
               ),
               const SizedBox(height: 18),
             
-              Text(
-                "ကျွန်တော့် App အား Download ဆွဲရန်",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.notoSerifMyanmar(
-                    fontSize: 16, fontWeight: FontWeight.bold,color: Colors.red.shade600),
-              ),
-                const SizedBox(height: 5),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      ontap(
-                          url:
-                              "https://play.google.com/store/apps/details?id=com.yoyo.trip.moez");
-                    },
-                    child: SizedBox(
-                      height: 45,
-                      child: Image.asset(
-                        "assets/logo/play-store.png",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  // const SizedBox(width: 10),
-                  // SizedBox(
-                  //   height: 45,
-                  //   child: Image.asset(
-                  //     "assets/logo/testflight.png",
-                  //     fit: BoxFit.cover,
-                  //   ),
-                  // ),
-                  const SizedBox(width: 10),
-                  SizedBox(
-                    height: 45,
-                    child: Image.asset(
-                      "assets/logo/direct.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ],
-              ),
+              // Text(
+              //   "ကျွန်တော့် App အား Download ဆွဲရန်",
+              //   textAlign: TextAlign.center,
+              //   style: GoogleFonts.notoSerifMyanmar(
+              //       fontSize: 16, fontWeight: FontWeight.bold,color: Colors.red.shade600),
+              // ),
+              //   const SizedBox(height: 5),
+              // Row(
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     InkWell(
+              //       onTap: () {
+              //         ontap(
+              //             url:
+              //                 "https://play.google.com/store/apps/details?id=com.yoyo.trip.moez");
+              //       },
+              //       child: SizedBox(
+              //         height: 45,
+              //         child: Image.asset(
+              //           "assets/logo/play-store.png",
+              //           fit: BoxFit.cover,
+              //         ),
+              //       ),
+              //     ),
+              //     // const SizedBox(width: 10),
+              //     // SizedBox(
+              //     //   height: 45,
+              //     //   child: Image.asset(
+              //     //     "assets/logo/testflight.png",
+              //     //     fit: BoxFit.cover,
+              //     //   ),
+              //     // ),
+              //     const SizedBox(width: 10),
+              //     SizedBox(
+              //       height: 45,
+              //       child: Image.asset(
+              //         "assets/logo/direct.png",
+              //         fit: BoxFit.cover,
+              //       ),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 20),
               Text(
                 "ကျွန်တော့် Official ချန်နယ် များ",
